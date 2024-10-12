@@ -1,12 +1,14 @@
 from _typeshed import ReadableBuffer, SizedBuffer
 from collections.abc import Callable
-from types import ModuleType
-from typing import Any, AnyStr, overload
+from hashlib import _Hash as _HashlibHash
+from typing import AnyStr, Protocol, overload, type_check_only
 from typing_extensions import TypeAlias
 
-# TODO more precise type for object of hashlib
-_Hash: TypeAlias = Any
-_DigestMod: TypeAlias = str | Callable[[], _Hash] | ModuleType
+@type_check_only
+class _DigestFactory(Protocol):
+    def new(self, d: bytes, /) -> _HashlibHash: ...
+
+_DigestMod: TypeAlias = str | Callable[[], _HashlibHash] | _DigestFactory
 
 trans_5C: bytes
 trans_36: bytes
