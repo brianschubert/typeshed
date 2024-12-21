@@ -1,6 +1,6 @@
 from collections.abc import Callable
 from email.message import Message
-from email.policy import Policy
+from email.policy import Policy, _MessageT
 from typing import IO
 from typing_extensions import TypeAlias
 
@@ -31,7 +31,15 @@ __all__ = [  # noqa: F822  # Undefined names in __all__
 _ParamType: TypeAlias = str | tuple[str | None, str | None, str]  # noqa: Y047
 _ParamsType: TypeAlias = str | None | tuple[str, str | None, str]  # noqa: Y047
 
-def message_from_string(s: str, _class: Callable[[], Message] = ..., *, policy: Policy = ...) -> Message: ...
-def message_from_bytes(s: bytes | bytearray, _class: Callable[[], Message] = ..., *, policy: Policy = ...) -> Message: ...
-def message_from_file(fp: IO[str], _class: Callable[[], Message] = ..., *, policy: Policy = ...) -> Message: ...
-def message_from_binary_file(fp: IO[bytes], _class: Callable[[], Message] = ..., *, policy: Policy = ...) -> Message: ...
+def message_from_string(
+    s: str, _class: Callable[[], _MessageT] = Message, *, policy: Policy[_MessageT] = ...  # noqa: Y011
+) -> _MessageT: ...
+def message_from_bytes(
+    s: bytes | bytearray, _class: Callable[[], _MessageT] = Message, *, policy: Policy[_MessageT] = ...  # noqa: Y011
+) -> _MessageT: ...
+def message_from_file(
+    fp: IO[str], _class: Callable[[], _MessageT] = Message, *, policy: Policy[_MessageT] = ...  # noqa: Y011
+) -> _MessageT: ...
+def message_from_binary_file(
+    fp: IO[bytes], _class: Callable[[], _MessageT] = Message, *, policy: Policy[_MessageT] = ...  # noqa: Y011
+) -> _MessageT: ...
