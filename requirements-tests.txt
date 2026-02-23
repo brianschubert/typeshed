@@ -1,6 +1,6 @@
 # Type checkers that we test our stubs against. These should always
 # be pinned to a specific version to make failure reproducible.
-mypy @ git+https://github.com/python/mypy@refs/pull/20867/head
+mypy @ git+https://github.com/python/mypy@refs/pull/19593/head
 pyright==1.1.408
 
 # Libraries used by our various scripts.
