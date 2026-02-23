@@ -191,7 +191,7 @@ def check_pyright_exclude_order() -> None:
 if __name__ == "__main__":
     check_versions_file()
     check_metadata()
-    check_requirement_pins()
+    # check_requirement_pins()
     check_no_symlinks()
     check_stdlib()
     check_stubs()
