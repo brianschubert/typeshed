@@ -1,13 +1,13 @@
 from typing import Any, Final, final, overload
 from typing_extensions import Self
 
-ATTR_CASE: Final[int]
-CASE_LOWER: Final[int]
-CASE_NATURAL: Final[int]
-CASE_UPPER: Final[int]
-PARAM_FILE: Final[int]
-QUOTED_LITERAL_REPLACEMENT_OFF: Final[int]
-QUOTED_LITERAL_REPLACEMENT_ON: Final[int]
+ATTR_CASE: Final = 3271982
+CASE_LOWER: Final = 1
+CASE_NATURAL: Final = 0
+CASE_UPPER: Final = 2
+PARAM_FILE: Final = 11
+QUOTED_LITERAL_REPLACEMENT_OFF: Final = 0
+QUOTED_LITERAL_REPLACEMENT_ON: Final = 1
 SQL_API_SQLROWCOUNT: Final[int]
 SQL_ATTR_AUTOCOMMIT: Final[int]
 SQL_ATTR_CALL_RETURN: Final[int]
@@ -85,9 +85,9 @@ SQL_WCHAR: Final[int]
 SQL_WLONGVARCHAR: Final[int]
 SQL_WVARCHAR: Final[int]
 SQL_XML: Final[int]
-USE_WCHAR: Final[int]
-WCHAR_NO: Final[int]
-WCHAR_YES: Final[int]
+USE_WCHAR: Final = 100
+WCHAR_NO: Final = 0
+WCHAR_YES: Final = 1
 
 SQL_ATTR_ACCESS_MODE: Final[int]
 SQL_ATTR_ALLOW_INTERLEAVED_GETDATA: Final[int]
