@@ -1,6 +1,7 @@
 from typing import Any, Final, final, overload
 from typing_extensions import Self
 
+__version__: Final[str]
 ATTR_CASE: Final = 3271982
 CASE_LOWER: Final = 1
 CASE_NATURAL: Final = 0
