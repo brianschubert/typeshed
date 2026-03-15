@@ -64,8 +64,8 @@ jobs:
       - name: Install required system packages
         shell: bash
         run: |
-          if [ -n "$STUBS" ]; then
-            PACKAGES=$(python tests/get_stubtest_system_requirements.py $STUBS)
+          if true; then
+            PACKAGES=$(python tests/get_stubtest_system_requirements.py)
             if [ "${{ runner.os }}" = "Linux" ]; then
               if [ -n "$PACKAGES" ]; then
                 printf "Installing APT packages:\n  $(echo $PACKAGES | sed 's/ /\n  /g')\n"
@@ -86,7 +86,7 @@ jobs:
       - name: Run stubtest
         shell: bash
         run: |
-          if [ -n "$STUBS" ]; then
+          if true; then
             echo "Testing $STUBS..."
 
             if [ "${{ runner.os }}" = "Linux" ]; then
@@ -95,7 +95,7 @@ jobs:
               PYTHON_EXECUTABLE="python"
             fi
 
-            $PYTHON_EXECUTABLE tests/stubtest_third_party.py --ci-platforms-only $STUBS
+            $PYTHON_EXECUTABLE tests/stubtest_third_party.py --ci-platforms-only
           else
             echo "Nothing to test"
           fi
