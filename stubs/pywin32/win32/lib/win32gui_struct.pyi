@@ -2,7 +2,7 @@ from _typeshed import Incomplete, ReadableBuffer
 from array import array
 from typing import NamedTuple
 
-is64bit: bool
+is64bit: str  # error?
 
 class _WMNOTIFY(NamedTuple):
     hwndFrom: Incomplete
