@@ -18,6 +18,8 @@ class _DispatchCreateClass(Protocol[_T_co]):
         lazydata: Incomplete | None = ...,
     ) -> _T_co: ...
 
+foo: int
+
 debugging: int
 debugging_attr: int
 LCID: int
