@@ -39,11 +39,19 @@ class InvalidChunkExtension(ParseError): ...
 
 @type_check_only
 class _ProxyProtocolInfo(TypedDict):
-    proxy_protocol: str
-    client_addr: str | None
-    client_port: int | None
-    proxy_addr: str | None
-    proxy_port: int | None
+    proxy_protocol: Literal["TCP4", "TCP6", "UDP4", "UDP6"]
+    client_addr: str
+    client_port: int
+    proxy_addr: str
+    proxy_port: int
+
+@type_check_only
+class _ProxyProtocolInfoUnknown(TypedDict):
+    proxy_protocol: Literal["UNKNOWN", "LOCAL", "UNSPEC"]
+    client_addr: None
+    client_port: None
+    proxy_addr: None
+    proxy_port: None
 
 class PythonProtocol:
     __slots__ = (
@@ -105,7 +113,7 @@ class PythonProtocol:
     ) -> None: ...
     def feed(self, data: Iterable[SupportsIndex]) -> None: ...
     @property
-    def proxy_protocol_info(self) -> _ProxyProtocolInfo | None: ...
+    def proxy_protocol_info(self) -> _ProxyProtocolInfo | _ProxyProtocolInfoUnknown | None: ...
     def reset(self) -> None: ...
     def finish(self) -> None: ...
 
