@@ -68,6 +68,9 @@ class ChunkMissingTerminator(IOError):
 
     def __init__(self, term: bytes) -> None: ...
 
+class InvalidChunkExtension(IOError):
+    def __init__(self, reason: str) -> None: ...
+
 class LimitRequestLine(ParseException):
     size: int
     max_size: int | None
