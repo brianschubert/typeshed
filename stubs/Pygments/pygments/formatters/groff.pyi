@@ -1,12 +1,15 @@
 from _typeshed import SupportsWrite
 from collections.abc import Iterable
+from typing import TypeVar
 
 from pygments.formatter import Formatter
 from pygments.token import _TokenType
 
 __all__ = ["GroffFormatter"]
 
-class GroffFormatter(Formatter):
+_T = TypeVar("_T", str, bytes)
+
+class GroffFormatter(Formatter[_T]):
     monospaced: bool
     linenos: bool
     wrap: int
