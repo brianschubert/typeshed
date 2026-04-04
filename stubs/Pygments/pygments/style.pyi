@@ -1,5 +1,6 @@
+from _typeshed import Self
 from collections.abc import Iterator, Mapping, Set as AbstractSet
-from typing import TypedDict, type_check_only
+from typing import Any, TypedDict, type_check_only
 
 from pygments.token import _TokenType
 
@@ -20,7 +21,7 @@ class _StyleDict(TypedDict):
     bgansicolor: str | None
 
 class StyleMeta(type):
-    def __new__(cls, name, bases, dct): ...
+    def __new__(cls: type[Self], name, bases: tuple[type[Any], ...], dct: dict[str, Any]) -> Self: ...
     def style_for_token(cls, token: _TokenType) -> _StyleDict: ...
     def styles_token(cls, ttype: _TokenType) -> bool: ...
     def list_styles(cls) -> list[tuple[_TokenType, _StyleDict]]: ...
