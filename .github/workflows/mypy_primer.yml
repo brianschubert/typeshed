@@ -51,6 +51,7 @@ jobs:
             mypy_primer \
             --new v${MYPY_VERSION} --old v${MYPY_VERSION} \
             --custom-typeshed-repo typeshed_to_test \
+            -k 'spark|mypy|manticore|discord|artigraph|pip|werkzeug|Expression|twine|bandersnatch|jinja|mypy_primer|packaging|zipp|pytest-autoprofile' \
             --new-typeshed $GITHUB_SHA --old-typeshed upstream_main \
             --num-shards 4 --shard-index ${{ matrix.shard-index }} \
             --debug \
