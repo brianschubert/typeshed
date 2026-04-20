@@ -51,6 +51,7 @@ jobs:
             mypy_primer \
             --new v${MYPY_VERSION} --old v${MYPY_VERSION} \
             --custom-typeshed-repo typeshed_to_test \
+            -k 'core|static-frame|spark|scikit-learn|altair|mypy|arviz|spack|discord|pytest|artigraph|aiohttp-devtools|steam|pip|speedrun|aiohttp|werkzeug|paasta|black|PyGithub|Expression|mkosi|flake8|cki-lib|asynq|python-chess|operator|jinja|sockeye|PyWinCtl|async-utils|mypy_primer|parso|pyproject-metadata|flake8-pyi|pyp|zipp|django-modern-rest|egglog-python' \
             --new-typeshed $GITHUB_SHA --old-typeshed upstream_main \
             --num-shards 4 --shard-index ${{ matrix.shard-index }} \
             --debug \
